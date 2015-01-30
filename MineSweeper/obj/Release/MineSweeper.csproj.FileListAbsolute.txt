@@ -1,0 +1,13 @@
+D:\C#\MineSweeper\MineSweeper\bin\Release\MineSweeper.exe.config
+D:\C#\MineSweeper\MineSweeper\bin\Release\MineSweeper.exe.manifest
+D:\C#\MineSweeper\MineSweeper\bin\Release\MineSweeper.application
+D:\C#\MineSweeper\MineSweeper\bin\Release\MineSweeper.exe
+D:\C#\MineSweeper\MineSweeper\bin\Release\MineSweeper.pdb
+D:\C#\MineSweeper\MineSweeper\obj\Release\MineSweeper.FrmMain.resources
+D:\C#\MineSweeper\MineSweeper\obj\Release\MineSweeper.FrmSettings.resources
+D:\C#\MineSweeper\MineSweeper\obj\Release\MineSweeper.Properties.Resources.resources
+D:\C#\MineSweeper\MineSweeper\obj\Release\MineSweeper.csproj.GenerateResource.Cache
+D:\C#\MineSweeper\MineSweeper\obj\Release\MineSweeper.exe.manifest
+D:\C#\MineSweeper\MineSweeper\obj\Release\MineSweeper.application
+D:\C#\MineSweeper\MineSweeper\obj\Release\MineSweeper.exe
+D:\C#\MineSweeper\MineSweeper\obj\Release\MineSweeper.pdb
