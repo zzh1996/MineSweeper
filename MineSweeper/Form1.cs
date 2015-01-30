@@ -107,14 +107,26 @@ namespace MineSweeper
 
         }
 
-        private void DrawString(String s, int i, int j, Graphics g, Color c)
+        private void DrawNum(int n, int i, int j, Graphics g, Color c)
         {
-            g.DrawString(s, this.Font, new SolidBrush(c), i * Size + 3, j * Size + 5);
+            int[,] Rect = new int[7,4] { { 6, 3, 8, 2 }, { 6, 3, 2, 8 }, { 12, 3, 2, 8 }, { 6, 9, 8, 2 }, { 6, 9, 2, 8 }, { 12, 9, 2, 8 }, { 6, 15, 8, 2 } };
+            int[,] Num = new int[8, 7] { { 0, 0, 1, 0, 0, 1, 0 }, { 1, 0, 1, 1, 1, 0, 1 }, { 1, 0, 1, 1, 0, 1, 1 }, { 0, 1, 1, 1, 0, 1, 0 }, { 1, 1, 0, 1, 0, 1, 1 }, { 1, 1, 0, 1, 1, 1, 1 }, { 1, 0, 1, 0, 0, 1, 0 }, { 1, 1, 1, 1, 1, 1, 1 } };
+            for (int k = 0; k < 7; k++)
+            {
+                if (Num[n - 1, k] == 1)
+                {
+                    g.FillRectangle(new SolidBrush(c), i * Size + Rect[k, 0], j * Size + Rect[k, 1], Rect[k, 2], Rect[k, 3]);
+                }
+            }
+        }
+
+        private void FillRect(int i, int j, Graphics g, Color c)
+        {
+            g.FillRectangle(new SolidBrush(c), i * Size + 1, j * Size + 1, Size - 2, Size - 2);
         }
 
         private void Pic_Paint(object sender, PaintEventArgs e)
         {
-            String[] Nums = new String[] { "１", "２", "３", "４", "５", "６", "７", "８" };
             Graphics g = e.Graphics;
             g.Clear(Color.White);
             for (int i = 0; i < W; i++)
@@ -124,18 +136,27 @@ namespace MineSweeper
                     g.DrawRectangle(new Pen(Color.Black), i * Size, j * Size, Size - 1, Size - 1);
                     if (!Show[i, j])
                     {
-                        g.FillRectangle(new SolidBrush(Color.Gray), i * Size + 1, j * Size + 1, Size - 2, Size - 2);
-                        if (Flag[i, j]) DrawString("★", i, j, g, Color.Red);
+                        if (Flag[i, j])
+                        {
+                            FillRect(i, j, g, Color.Red);
+                        }
+                        else
+                        {
+                            FillRect(i, j, g, Color.Gray);
+                        }
                     }
                     else
                     {
                         if (Map[i, j])
                         {
-                            DrawString("●", i, j, g, Color.Brown);
+                            FillRect(i, j, g, Color.Black);
                         }
                         else
                         {
-                            if (Num[i, j] > 0) DrawString(Nums[Num[i, j] - 1], i, j, g, Color.Blue);
+                            if (Num[i, j] > 0)
+                            {
+                                DrawNum(Num[i, j], i, j, g, Color.Blue);
+                            }
                         }
                     }
                 }
